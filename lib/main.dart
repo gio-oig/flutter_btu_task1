@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 300,
                 height: 300,
               ),
-            if (animal == "jirafa")
+            if (animal == "giraffe")
               Image.network(
                 "https://images.unsplash.com/photo-1610186356191-880ceaa884f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=747&q=80",
                 width: 300,
@@ -89,10 +89,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      changeAnimal("jirafa");
+                      changeAnimal("giraffe");
                     },
                     style: ElevatedButton.styleFrom(fixedSize: Size(100, 40)),
-                    child: Text("jirafa")),
+                    child: Text("giraffe")),
                 ElevatedButton(
                     onPressed: () {
                       changeAnimal("bear");
