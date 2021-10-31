@@ -12,7 +12,13 @@ class Button extends StatelessWidget {
         onPressed: () {
           onClick(content);
         },
-        style: ElevatedButton.styleFrom(fixedSize: Size(100, 40)),
-        child: Text(content));
+        style: ElevatedButton.styleFrom(
+            fixedSize: Size(100, 40),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+        child: Text(
+          content,
+          style: TextStyle(fontSize: 15),
+        ));
   }
 }
