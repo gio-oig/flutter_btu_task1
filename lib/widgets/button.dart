@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_btu_task1/provider/animal_provider.dart';
+import 'package:provider/provider.dart';
 
 class Button extends StatelessWidget {
   final String content;
-  final Function(String animalName) onClick;
-  const Button({Key? key, required this.content, required this.onClick})
-      : super(key: key);
+  const Button({Key? key, required this.content}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
-          onClick(content);
+          context.read<AnimalProvider>().changeAnimal(content);
         },
         style: ElevatedButton.styleFrom(
             fixedSize: Size(100, 40),

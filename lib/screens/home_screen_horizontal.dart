@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_btu_task1/main.dart';
+import 'package:flutter_btu_task1/provider/animal_provider.dart';
 import 'package:flutter_btu_task1/widgets/button.dart';
 import 'package:flutter_btu_task1/widgets/description.dart';
 import 'package:flutter_btu_task1/widgets/images.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreenHorizontal extends StatelessWidget {
-  final Function(String animalName) changeAnimal;
-  const HomeScreenHorizontal({Key? key, required this.changeAnimal})
-      : super(key: key);
+  const HomeScreenHorizontal({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +18,10 @@ class HomeScreenHorizontal extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               RenderImages(
-                animalName: animal,
+                animalName: context.watch<AnimalProvider>().animal,
               ),
-              DescriptionCard(description: animalDesc[animal]),
+              DescriptionCard(
+                  description: context.watch<AnimalProvider>().desc),
             ])),
         Flexible(
             flex: 2,
@@ -33,9 +33,10 @@ class HomeScreenHorizontal extends StatelessWidget {
                   children: [
                     Button(
                       content: 'elephent',
-                      onClick: changeAnimal,
                     ),
-                    Button(content: 'tiger', onClick: changeAnimal)
+                    Button(
+                      content: 'tiger',
+                    )
                   ],
                 ),
                 SizedBox(
@@ -46,9 +47,10 @@ class HomeScreenHorizontal extends StatelessWidget {
                   children: [
                     Button(
                       content: 'giraffe',
-                      onClick: changeAnimal,
                     ),
-                    Button(content: 'bear', onClick: changeAnimal),
+                    Button(
+                      content: 'bear',
+                    ),
                   ],
                 )
               ],
